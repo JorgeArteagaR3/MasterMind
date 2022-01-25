@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: "Poppins", sans-serif;
+}
+.wrapper {
+    margin: 1.5em;
+}
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/tupacshirt2.jpg");
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-size: cover;
+    background-position-x: 20%;
+    background-position-y: 20%;
+    overflow: hidden;
+    animation: introLoad 2s forwards;
+}
+.logo {
+    color: white;
+    font-weight: bold;
+}
+nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: white;
+    height: 100vh;
+    width: 50%;
+    z-index: 999;
+    text-transform: uppercase;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+
+    ul {
+        list-style: none;
+        margin-top: 8em;
+        a {
+            color: black;
+            padding: 0.75em 2em;
+            display: block;
+            &:hover {
+                background: rgb(235, 235, 235);
+            }
+        }
+    }
+    .close {
+        float: right;
+        margin: 2em;
+        width: 2.5em;
+    }
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    svg {
+        width: 2em;
+        margin-top: -0.6rem;
+        cursor: pointer;
+    }
+}
+h1 {
+    font-size: 3.6rem;
+    margin-top: 2em;
+    line-height: 3.6rem;
+    margin-bottom: 3rem;
+}
+.subhead {
+    font-size: 1.3rem;
+}
+section.hero {
+    color: white;
+    height: 90vh;
+    animation: moveDown 1s ease-in-out forwards;
+    opacity: 0;
+
+    .down-arrow {
+        stroke: white;
+        position: absolute;
+        bottom: 5em;
+        width: 1rem;
+        animation: moveArrow 1s alternate-reverse infinite;
+        path {
+            fill: white;
+        }
+    }
+}
+
+.more-info {
+    width: 100%;
+    height: auto;
+    .title {
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+    h3 {
+        margin-bottom: 2rem;
+    }
+}
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+
+    img {
+        width: 150px;
+        height: auto;
+        box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.07);
+        -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.07);
+        -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.07);
+        padding: 2em 0;
+        margin-bottom: 0.5em;
+    }
+    .shirt-container {
+        padding: 1.2em;
+        .shirt-container__details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+.open-nav {
+    transform: translateX(0%);
+}
+@media only screen and (min-width: 680px) {
+    .wrapper {
+        margin: 1.5em 5em;
+    }
+}
+@media only screen and (min-width: 920px) {
+    .menu {
+        display: none;
+    }
+    nav {
+        transform: translateX(0);
+        position: unset;
+        display: block;
+        width: auto;
+        height: auto;
+        background: none;
+
+        svg.close {
+            display: none;
+        }
+        ul {
+            display: flex;
+            margin: 0;
+            a {
+                color: white;
+                padding: 0.5em 1.5em;
+                font-size: 1rem;
+                &:hover {
+                    background: none;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .hero-img {
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 60rem;
+    }
+    .logo {
+        color: black;
+        font-size: 1.6rem;
+        span {
+            color: red;
+        }
+    }
+    section.hero {
+        color: black;
+        height: auto;
+        width: 40%;
+        height: 50rem;
+        p.subhead {
+            margin-bottom: 8em;
+        }
+        svg.down-arrow {
+            stroke: black;
+            position: unset;
+            path {
+                fill: black;
+            }
+        }
+    }
+    .nav-menu {
+        ul {
+            a {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@keyframes introLoad {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+@keyframes moveArrow {
+    from {
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+@keyframes moveDown {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
